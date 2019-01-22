@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello Vue.js</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div id="app">
+    <h2>
+      Bitcoin Price
+    </h2>
+    <section v-if="hasError">
+      Error.
+    </section>
+    <section v-else>
+      <div v-if="loading">
+        Loading...
+      </div>
+      <div v-else>
+        <ul v-cloak>
+          <li v-for="(rate, currency) in bpi">
+            {{ currency }} : {{ rate.rate_float | currencyDecimal }}
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <hr>
+
+  <h2>
+    Google Map API
+  </h2>
+  <div id="map"></div>
+
+  <hr>
+  <h2>
+    
+  </h2>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="http://maps.google.com/maps/api/js?key=AIzaSyBTaNFoUA4b4YzDVyypE5RVqAjT5GQz_rU&language=ja"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hello Vue.js</title>
+  <link rel="stylesheet" type="text/scss" href="css/main.scss">
+</head>
+<body>
+  <div id="app">
+    <main class="main-container">
+      <div class="chat-timeline">
+        <balloon v-for="chat in chatLogs" :speaker="chat.speaker" :name="chat.name" :message="chat.message">
+        </balloon>
+      </div>
+      <chat-form @submit-message="submit" apply-event="submit-message">
+      </chat-form>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
